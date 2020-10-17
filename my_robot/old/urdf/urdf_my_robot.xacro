@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<robot name="my_robot_model">
+  <joint name="my_robot_model__link_0_clone_JOINT_1_0" type="fixed">
+    <parent link="my_robot_model__link_0_clone"/>
+    <child link="my_robot_model__link_0_0"/>
+    <origin rpy="0  0  0" xyz="0.25095  0.00049 -0.1"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  <joint name="my_robot_model__link_0_clone_JOINT_1" type="revolute">
+    <parent link="my_robot_model__link_0_clone"/>
+    <child link="my_robot_model__link_2"/>
+    <origin rpy="1.5707  0      0" xyz="0      -0.32501  0"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="my_robot_model__link_0_clone_JOINT_2_0" type="fixed">
+    <parent link="my_robot_model__link_0_clone"/>
+    <child link="my_robot_model__link_0_0_clone"/>
+    <origin rpy="0  0  0" xyz="-0.25404  0.00049 -0.1"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  <joint name="my_robot_model__link_0_clone_JOINT_2" type="revolute">
+    <parent link="my_robot_model__link_0_clone"/>
+    <child link="my_robot_model__link_2_clone"/>
+    <origin rpy="1.5707  0      0" xyz="0       0.32501  0"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <link name="my_robot_model__link_0_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <collision name="my_robot_model__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="my_robot_model__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="my_robot_model__link_0_0_clone">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <collision name="my_robot_model__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="my_robot_model__visual_0">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="my_robot_model__link_0_clone">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="my_robot_model__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.3"/>
+      </geometry>
+    </collision>
+    <visual name="my_robot_model__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.3"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="my_robot_model__link_2">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="my_robot_model__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.15"/>
+      </geometry>
+    </collision>
+    <visual name="my_robot_model__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.15"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="my_robot_model__link_2_clone">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="my_robot_model__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.15"/>
+      </geometry>
+    </collision>
+    <visual name="my_robot_model__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.15"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
