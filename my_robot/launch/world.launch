@@ -2,7 +2,7 @@
 
 <launch>
   <!-- World File -->
-  <arg name="world_file" default="$(find my_robot)/worlds/daniels.world"/>
+  <arg name="world_file" default="$(find my_robot)/worlds/daniel.world"/>
 
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -22,6 +22,7 @@
 
   <!-- Launch other relevant files-->
   <include file="$(find my_robot)/launch/robot_description.launch"/>
+  <include file="$(find ball_chaser)/launch/ball_chaser.launch"/>
 
   <!-- Spawn My Robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
@@ -30,6 +31,6 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
 
   <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_robot)/config/chase_it.rviz" respawn="false"/>
 
 </launch>
