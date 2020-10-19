@@ -24,16 +24,16 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 {
-    int white_pixel = 255;
+    std::vector<int> white_pixel = {255,255,255};
     bool ball_detected = false;
 
     // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
-    for (int i = 0; i < (img.height * img.step); i++)
+    for (int i = 0; i < (img.height * img.step); i=i+3)
     {  
-        if (img.data[i] == white_pixel)
+        if (img.data[i] == white_pixel[0] && img.data[i+1] == white_pixel[1] && img.data[i+2] == white_pixel[2])
         {
             // Get x coordinat
             int white_pixel_x_coordinate = i%img.step;
