@@ -22,7 +22,7 @@
 
   <!-- Launch other relevant files-->
   <include file="$(find my_robot)/launch/robot_description.launch"/>
-  <include file="$(find ball_chaser)/launch/ball_chaser.launch"/>
+  <!-- <include file="$(find ball_chaser)/launch/ball_chaser.launch"/> --> <!-- Uncomment if you want to run all nodes automatically runing this world.launch -->
 
   <!-- Spawn My Robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
