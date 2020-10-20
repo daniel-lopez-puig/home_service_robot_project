@@ -40,15 +40,15 @@ void process_image_callback(const sensor_msgs::Image img)
             ROS_INFO_STREAM("Ball detected - first_left_pixel_x_coordinate: "<<std::to_string(white_pixel_x_coordinate));
 
             // Orders depending on x region
-            if (white_pixel_x_coordinate < img.step/4)
+            if (white_pixel_x_coordinate < img.step/2)
             {
                 // Turn left
                 drive_robot(0.2, 0.4);
-            } else if (white_pixel_x_coordinate >= img.step/4 && white_pixel_x_coordinate < img.step*3/4)
+            } else if (white_pixel_x_coordinate >= img.step/2 && white_pixel_x_coordinate < img.step*2/3)
             {   
                 // Go straight
                 drive_robot(0.2, 0.0);
-            } else if (white_pixel_x_coordinate >= img.step*3/4)
+            } else if (white_pixel_x_coordinate >= img.step*2/3)
             {   
                 // Turn right
                 drive_robot(0.2, -0.4);
