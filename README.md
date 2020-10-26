@@ -25,20 +25,19 @@ catkin_make
 
 ### Run the simulation
 This will open two windows, gazebo and rviz.
-In gazebo you can see all the simulated world with the robot, a building and a white ball.
-
-![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
-
-On the other hand you will have a rviz window thats shows what the robot sees using the laser and the front camera.
-
-![gazebo_world](readme_images/rviz_chase_it.png)
 
 ```bash
 cd catkin_ws
 source devel/setup.bash
 roslaunch my_robot daniel.world
-
 ```
+
+In gazebo you can see all the simulated world with the robot, a building and a white ball.
+![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
+
+On the other hand you will have a rviz window thats shows what the robot sees using the laser and the front camera.
+![gazebo_world](readme_images/rviz_chase_it.png)
+
 ### Run the ROS package
 Now to run the ROS package that runs the logic, open a second terminal, and run the following commands
 
@@ -51,7 +50,7 @@ roslaunch ball_chaser ball_chaser.launch
 ### Let the robot see the ball
 Move the ball in a place that the camera can detect it and see how the robot chase it!
 
-![gazebo_gif](readme_images/chasing_the_ball.gif)
+![gazebo_gif](readme_images/chasing_ball.gif)
 
 # Structure
 
