@@ -6,7 +6,7 @@ It is basically composed by two different components:
 - A ROS package that enables the robot to detect and follow a ball in the world.
 
 # Installation
-This simulation have been tested and created in:
+This simulation have been created and tested in:
 - [Ubuntu 18.04](https://ubuntu.com/download/desktop) (supports Ubuntu 16.04 or superior) 
 - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) (supports ROS kinetic or superior)
 - [Gazebo 9.0](http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=9.0) (supports Gazebo 7.0 or superior)
@@ -16,8 +16,8 @@ This simulation have been tested and created in:
 ```bash
 mkdir -p catkin_ws/src # create 2 folders
 cd catkin_ws # go to main folder
-catkin_make # create some folders and files
-cd src
+catkin_make # create some automatic folders and files
+cd src # go to source folder
 git clone git@github.com:daniel-lopez-puig/chase_it.git #clone this repository
 cd .. # go back to catkin_ws
 catkin_make
@@ -35,7 +35,7 @@ roslaunch my_robot daniel.world
 In gazebo you can see all the simulated world with the robot, a building and a white ball.
 ![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
 
-On the other hand you will have a rviz window thats shows what the robot sees using the laser and the front camera.
+On the other hand you will have a rviz window thats shows what the robot sees using the laser (red lines) and the front camera (bottom right image).
 ![gazebo_world](readme_images/rviz_chase_it.png)
 
 ### Run the ROS package
@@ -53,10 +53,18 @@ Move the ball in a place that the camera can detect it and see how the robot cha
 ![gazebo_gif](readme_images/chasing_ball.gif)
 
 # Structure
+This package is mainly composed by two folders, **my_robot** (responsible to simulate a world, the robot and all the physics) and the **ball_chaser** that creates the logic.
 
 ![Tree](readme_images/chase_it_structure.png)
 
-# Thanks
+# Contribute
+
+This project have been done entirely for me while coursing the  [Roftware Software Engineer nando degree program](https://www.udacity.com/course/robotics-software-engineer--nd209) in Udacity. Please feel free to fork and create your own branch with your personalized projects.
 
 # License
 
+Feel free to use this repository to create your own simulation following the [MIT license attached](LICENSE).
+
+# Contact
+
+Do not hesitate to contact me via mail (daniel.lopez.puig@gmail.com) or by [Linkedin](https://www.linkedin.com/in/daniel-lopez-puig/) to give any suggestion or possible colaboration project realated to robotics.
