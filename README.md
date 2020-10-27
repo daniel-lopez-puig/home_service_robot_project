@@ -1,5 +1,5 @@
 # Chase_it
-Chase_it is basic robot simulation that can be used as a base project to start your own modified version.
+Chase_it is basic robot simulation of a simple robot that follows a white ball. This project can be used as a base/template project to start your own modified project.
 
 It is basically composed by two different components:
 - The simulation of the robot that holds a world and a very simple robot inside.
