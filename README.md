@@ -15,6 +15,8 @@ This simulation have been created and tested in:
 
 ```bash
 mkdir -p catkin_ws/src # create 2 folders
+cd catkin_ws/src
+catkin_init_workspace # createa CMakeLists.txt
 cd catkin_ws # go to main folder
 catkin_make # create some automatic folders and files
 cd src # go to source folder
