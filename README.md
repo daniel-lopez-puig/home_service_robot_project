@@ -48,13 +48,14 @@ roslaunch where_am_i amcl.launch
 In gazebo you can see all the simulated world with the robot and a building.
 ![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
 
-On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and the front camera (bottom right image).
-![gazebo_world](readme_images/rviz_chase_it.png)
+On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and soem red vectors that try to determine where is your actual position comparing the reality with the superposed map.
+
+![gazebo_world](readme_images/staring_point_bit_lost.png)
 
 ### Send the robot to a desired position
-Move the robot sending a goal inside the map
+Move the robot sending a goal inside the map using the **2D Nav Goal** button on the top bar:
 
-![gazebo_gif](readme_images/chasing_ball.gif)
+![gazebo_gif](readme_images/well_localized.png)
 
 Or alternatively open a new terminal and move the robot manually:
 
@@ -64,7 +65,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 # Structure
 This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **where_am_i** that simulates the robot, launch all localization files proper configured.
 
-![Tree](readme_images/chase_it_structure.png)
+![Tree](readme_images/tree.png)
 
 # Contribute
 
