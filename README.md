@@ -1,15 +1,25 @@
-# Chase_it
-Chase_it is basic robot simulation of a simple robot that follows a white ball. This project can be used as a base/template project to start your own modified project.
+# Where_am_I
+Where_am_I is basic robot simulation focused on localization. This project can be used as a base/template project to start your own modified project of localization using amcl pkg.
 
-It is basically composed by two different components:
+It is basically composed by three different components:
 - The simulation of the robot that holds a world and a very simple robot inside.
-- A ROS package that enables the robot to detect and follow a ball in the world.
+- Configuration for amcl package that enables the robot to get information from laser and odometry and outputs the localization.
+- A map of the world well configured
 
 # Installation
 This simulation have been created and tested in:
-- [Ubuntu 18.04](https://ubuntu.com/download/desktop) (supports Ubuntu 16.04 or superior) 
-- [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) (supports ROS kinetic or superior)
-- [Gazebo 9.0](http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=9.0) (supports Gazebo 7.0 or superior)
+- [Ubuntu 16.04](https://ubuntu.com/download/desktop) (supports Ubuntu 16.04) 
+- [ROS Kinetic](http://wiki.ros.org/melodic/Installation/Ubuntu) (supports ROS kinetic, with melodic has some issues)
+- [Gazebo 7.0](http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=7.0) (supports Gazebo 7.0 or superior)
+
+Install some pkgs
+
+```bash
+sudo apt-get install ros-kinetic-navigation
+sudo apt-get install ros-kinetic-map-server
+sudo apt-get install ros-kinetic-move-base
+sudo apt-get install ros-kinetic-amcl
+```
 
 ### Create a catkin workspace to compile and run the simulation
 
@@ -20,42 +30,39 @@ catkin_init_workspace # createa CMakeLists.txt
 cd catkin_ws # go to main folder
 catkin_make # create some automatic folders and files
 cd src # go to source folder
-git clone git@github.com:daniel-lopez-puig/chase_it.git #clone this repository
+git clone https://github.com/daniel-lopez-puig/where_am_i_project.git #clone this repository
+mv where_am_i_project/* . && rm -r where_am_i
 cd .. # go back to catkin_ws
 catkin_make
 ```
 
-### Run the simulation
+### Run the simulation and ROS packages
 This will open two windows, gazebo and rviz.
 
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch my_robot daniel.world
+roslaunch where_am_i amcl.launch
 ```
 
-In gazebo you can see all the simulated world with the robot, a building and a white ball.
+In gazebo you can see all the simulated world with the robot and a building.
 ![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
 
-On the other hand you will have a rviz window thats shows what the robot sees using the laser (red lines) and the front camera (bottom right image).
+On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and the front camera (bottom right image).
 ![gazebo_world](readme_images/rviz_chase_it.png)
 
-### Run the ROS package
-Now to run the ROS package that runs the logic, open a second terminal, and run the following commands
-
-```bash
-cd catkin_ws
-source devel/setup.bash
-roslaunch ball_chaser ball_chaser.launch
-```
-
-### Let the robot see the ball
-Move the ball in a place that the camera can detect it and see how the robot chase it!
+### Send the robot to a desired position
+Move the robot sending a goal inside the map
 
 ![gazebo_gif](readme_images/chasing_ball.gif)
 
+Or alternatively open a new terminal and move the robot manually:
+
+```bash
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
 # Structure
-This package is mainly composed by two folders, **my_robot** (responsible to simulate a world, the robot and all the physics) and the **ball_chaser** that creates the logic.
+This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **where_am_i** that simulates the robot, launch all localization files proper configured.
 
 ![Tree](readme_images/chase_it_structure.png)
 
