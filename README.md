@@ -1,5 +1,5 @@
-# Where_am_I
-Where_am_I is basic robot simulation focused on localization. This project can be used as a base/template project to start your own modified project of localization using amcl pkg.
+# map_my_world
+map_my_world is basic robot simulation focused on localization. This project can be used as a base/template project to start your own modified project of localization using amcl pkg.
 
 It is basically composed by three different components:
 - The simulation of the robot that holds a world and a very simple robot inside.
@@ -30,8 +30,8 @@ catkin_init_workspace # createa CMakeLists.txt
 cd catkin_ws # go to main folder
 catkin_make # create some automatic folders and files
 cd src # go to source folder
-git clone https://github.com/daniel-lopez-puig/where_am_i_project.git #clone this repository
-mv where_am_i_project/* . && rm -r where_am_i
+git clone https://github.com/daniel-lopez-puig/map_my_world_project.git #clone this repository
+mv map_my_world_project/* . && rm -r map_my_world
 cd .. # go back to catkin_ws
 catkin_make
 ```
@@ -42,7 +42,7 @@ This will open two windows, gazebo and rviz.
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch where_am_i amcl.launch
+roslaunch map_my_world amcl.launch
 ```
 
 In gazebo you can see all the simulated world with the robot and a building.
@@ -63,7 +63,7 @@ Or alternatively open a new terminal and move the robot manually:
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 # Structure
-This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **where_am_i** that simulates the robot, launch all localization files proper configured.
+This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all localization files proper configured.
 
 ![Tree](readme_images/tree.png)
 
