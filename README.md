@@ -62,6 +62,15 @@ roslaunch map_my_world mapping.launch
 ```
 ![rtab-map](readme_images/rtab-map_starting_point.png)
 
+**ATENTION!**:
+
+Maps are created and stored by default in `~/.ros/rtabmap.db`
+This means that if you create a map, cancel the mapping.launch and run it again, it will OVERRIDE your previous map. So ensure to backup it befoure creating a new map! 
+
+If you want to use the map I already created, you can download it from [here](https://drive.google.com/file/d/1JQx4Fw9BnV3Jxyxg-Bekzx27LljJOxO9/view?usp=sharing)
+
+
+
 #### Terminal 3:
 This will allow you to teleop the robot from cl:
 ```bash
@@ -74,6 +83,15 @@ Remember to click on the terminal to focus it and control the robot.
 After moving a bit, you will start seeing the created 3Dmap as below:
 
 ![rtab-map](readme_images/rtab-map_after_moving.png)
+
+After mapping your enviorment (ensure at least 3 close loops), cancel terminal 2 and run the localization launch file:
+
+#### Terminal 2 (again):
+This will start localizing the robot inside the map you have cerated:
+```bash
+# CTRL+C to cancel previous mapping.launch
+roslaunch map_my_world localization.launch
+```
 
 # Structure
 This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all mapping and localization files proper configured.
