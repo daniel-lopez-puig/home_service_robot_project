@@ -24,6 +24,8 @@ devel_isolated/
 # Ignore generated docs
 *.dox
 *.wikidoc
+*.db
+rtab_maps/
 
 # eclipse stuff
 .project

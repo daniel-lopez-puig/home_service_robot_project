@@ -69,5 +69,9 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cSpell.ignoreWords": [
+        "mkdir",
+        "rtabmap"
+    ]
 }
