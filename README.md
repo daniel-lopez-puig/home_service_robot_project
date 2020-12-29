@@ -1,10 +1,9 @@
 # map_my_world
-map_my_world is basic robot simulation focused on localization. This project can be used as a base/template project to start your own modified project of localization using amcl pkg.
+map_my_world is basic robot simulation focused on 2D & 3D mapping and localization. This project can be used as a base/template project to start your own modified project.
 
 It is basically composed by three different components:
 - The simulation of the robot that holds a world and a very simple robot inside.
-- Configuration for amcl package that enables the robot to get information from laser and odometry and outputs the localization.
-- A map of the world well configured
+- Configuration for rtabmap_ros package that enables the robot to get information from RGBD camera and odometry and outputs the 3D map and his localization.
 
 # Installation
 This simulation have been created and tested in:
@@ -12,13 +11,14 @@ This simulation have been created and tested in:
 - [ROS Kinetic](http://wiki.ros.org/melodic/Installation/Ubuntu) (supports ROS kinetic, with melodic has some issues)
 - [Gazebo 7.0](http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=7.0) (supports Gazebo 7.0 or superior)
 
-Install some pkgs
+Install key pkgs
 
 ```bash
-sudo apt-get install ros-kinetic-navigation
-sudo apt-get install ros-kinetic-map-server
-sudo apt-get install ros-kinetic-move-base
-sudo apt-get install ros-kinetic-amcl
+sudo apt update
+sudo apt install ros-kinetic-navigation
+sudo apt install ros-kinetic-map-server
+sudo apt install ros-kinetic-move-base
+sudo apt install ros-kinetic-rtabmap-ros
 ```
 
 ### Create a catkin workspace to compile and run the simulation
@@ -37,33 +37,39 @@ catkin_make
 ```
 
 ### Run the simulation and ROS packages
+#### Terminal 1:
 This will open two windows, gazebo and rviz.
-
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch map_my_world amcl.launch
+roslaunch map_my_world world.launch
 ```
 
 In gazebo you can see all the simulated world with the robot and a building.
-![gazebo_world](readme_images/gazebo_with_ball_chase_it.png)
 
-On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and soem red vectors that try to determine where is your actual position comparing the reality with the superposed map.
+On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and what sees the RGBD camera as point clounds.
+
+#### Terminal 2:
+This will start creating a map you can see in rviz. It also open a rtab-map window.
+```bash
+cd catkin_ws
+source devel/setup.bash
+roslaunch map_my_world mapping.launch
+```
 
 ![gazebo_world](readme_images/staring_point_bit_lost.png)
 
-### Send the robot to a desired position
-Move the robot sending a goal inside the map using the **2D Nav Goal** button on the top bar:
-
-![gazebo_gif](readme_images/well_localized.png)
-
-Or alternatively open a new terminal and move the robot manually:
-
+#### Terminal 3:
+This will allow you to teleop the robot from cl:
 ```bash
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+cd catkin_ws
+source devel/setup.bash
+roslaunch map_my_world teleop.launch
 ```
+Remember to click on the terminal to focus it and control the robot.
+
 # Structure
-This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all localization files proper configured.
+This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all mapping and localization files proper configured.
 
 ![Tree](readme_images/tree.png)
 
