@@ -47,7 +47,11 @@ roslaunch map_my_world world.launch
 
 In gazebo you can see all the simulated world with the robot and a building.
 
+![gazebo_world](readme_images/gazebo.png)
+
 On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and what sees the RGBD camera as point clounds.
+
+![rviz](readme_images/rviz.png)
 
 #### Terminal 2:
 This will start creating a map you can see in rviz. It also open a rtab-map window.
@@ -56,8 +60,7 @@ cd catkin_ws
 source devel/setup.bash
 roslaunch map_my_world mapping.launch
 ```
-
-![gazebo_world](readme_images/staring_point_bit_lost.png)
+![rtab-map](readme_images/rtab-map_starting_point.png)
 
 #### Terminal 3:
 This will allow you to teleop the robot from cl:
@@ -67,6 +70,10 @@ source devel/setup.bash
 roslaunch map_my_world teleop.launch
 ```
 Remember to click on the terminal to focus it and control the robot.
+
+After moving a bit, you will start seeing the created 3Dmap as below:
+
+![rtab-map](readme_images/rtab-map_after_moving.png)
 
 # Structure
 This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all mapping and localization files proper configured.
