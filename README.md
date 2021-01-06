@@ -67,7 +67,7 @@ roslaunch map_my_world mapping.launch
 Maps are created and stored by default in `~/.ros/rtabmap.db`
 This means that if you create a map, cancel the mapping.launch and run it again, it will OVERRIDE your previous map. So ensure to backup it befoure creating a new map! 
 
-If you want to use the map I already created, you can download it from [here](https://drive.google.com/file/d/1-Cdms2bT3w-ZFQS9Kj72EHybggDTurPm/view?usp=sharing)
+If you want to use the map I already created, you can download it from [here](https://drive.google.com/file/d/1G_P53l2Hb7ecnsXoa-o2MKmRnVLl_oH6/view?usp=sharing)
 
 
 
