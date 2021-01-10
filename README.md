@@ -54,11 +54,11 @@ On the other hand you will have a rviz window thats shows what the robot sees us
 ![rviz](readme_images/rviz.png)
 
 #### Terminal 2:
-This will start creating a map you can see in rviz. It also open a rtab-map window.
+This will start creating a map you can see in rviz.
+If you want to create your own map, you can ...
+In order to save it, run the following command:
 ```bash
-cd catkin_ws
-source devel/setup.bash
-roslaunch home_service_robot mapping.launch
+rosrun map_server map_saver -f /tmp/my_map
 ```
 ![rtab-map](readme_images/rtab-map_starting_point.png)
 
