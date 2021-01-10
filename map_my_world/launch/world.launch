@@ -2,7 +2,7 @@
 
 <launch>
   <!-- World File -->
-  <arg name="world_file" default="$(find map_my_world)/worlds/daniel.world"/>
+  <arg name="world_file" default="$(find home_service_robot)/worlds/daniel.world"/>
 
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -21,7 +21,7 @@
   <arg name="yaw" default="3.1416"/>
 
   <!-- Launch other relevant files-->
-  <include file="$(find map_my_world)/launch/robot_description.launch"/>
+  <include file="$(find home_service_robot)/launch/robot_description.launch"/>
   <!-- <include file="$(find ball_chaser)/launch/ball_chaser.launch"/> --> <!-- Uncomment if you want to run all nodes automatically runing this world.launch -->
 
   <!-- Spawn My Robot -->
@@ -31,6 +31,6 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
 
   <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find map_my_world)/config/map_my_world.rviz" respawn="false"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find home_service_robot)/config/home_service_robot.rviz" respawn="false"/>
 
 </launch>

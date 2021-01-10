@@ -12,7 +12,7 @@
                 ]
             },
             "includePath": [
-                "/home/robond/map_my_world_ws/devel/include",
+                "/home/robond/home_service_robot_ws/devel/include",
                 "/opt/ros/kinetic/include",
                 "/usr/include"
             ],

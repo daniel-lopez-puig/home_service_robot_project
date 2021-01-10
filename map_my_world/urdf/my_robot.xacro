@@ -3,7 +3,7 @@
 <robot name="my_robot"
   xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find map_my_world)/urdf/my_robot.gazebo" />
+  <xacro:include filename="$(find home_service_robot)/urdf/my_robot.gazebo" />
 
   <material name="blue">
     <color rgba="0 0 0.8 1"/>
@@ -193,7 +193,7 @@
     <visual>
       <origin xyz="0.0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://map_my_world/meshes/hokuyo.dae"/>
+        <mesh filename="package://home_service_robot/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
   </link>

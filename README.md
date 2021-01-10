@@ -1,5 +1,5 @@
-# map_my_world
-map_my_world is basic robot simulation focused on 2D & 3D mapping and localization. This project can be used as a base/template project to start your own modified project.
+# home_service_robot
+home_service_robot is basic robot simulation focused on 2D & 3D mapping and localization. This project can be used as a base/template project to start your own modified project.
 
 It is basically composed by three different components:
 - The simulation of the robot that holds a world and a very simple robot inside.
@@ -30,8 +30,8 @@ catkin_init_workspace # createa CMakeLists.txt
 cd catkin_ws # go to main folder
 catkin_make # create some automatic folders and files
 cd src # go to source folder
-git clone https://github.com/daniel-lopez-puig/map_my_world_project.git #clone this repository
-mv map_my_world_project/* . && rm -r map_my_world
+git clone https://github.com/daniel-lopez-puig/home_service_robot_project.git #clone this repository
+mv home_service_robot_project/* . && rm -r home_service_robot
 cd .. # go back to catkin_ws
 catkin_make
 ```
@@ -42,7 +42,7 @@ This will open two windows, gazebo and rviz.
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch map_my_world world.launch
+roslaunch home_service_robot world.launch
 ```
 
 In gazebo you can see all the simulated world with the robot and a building.
@@ -58,7 +58,7 @@ This will start creating a map you can see in rviz. It also open a rtab-map wind
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch map_my_world mapping.launch
+roslaunch home_service_robot mapping.launch
 ```
 ![rtab-map](readme_images/rtab-map_starting_point.png)
 
@@ -76,7 +76,7 @@ This will allow you to teleop the robot from cl:
 ```bash
 cd catkin_ws
 source devel/setup.bash
-roslaunch map_my_world teleop.launch
+roslaunch home_service_robot teleop.launch
 ```
 Remember to click on the terminal to focus it and control the robot.
 
@@ -90,11 +90,11 @@ After mapping your enviorment (ensure at least 3 close loops), cancel terminal 2
 This will start localizing the robot inside the map you have cerated:
 ```bash
 # CTRL+C to cancel previous mapping.launch
-roslaunch map_my_world localization.launch
+roslaunch home_service_robot localization.launch
 ```
 
 # Structure
-This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **map_my_world** that simulates the robot, launch all mapping and localization files proper configured.
+This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **home_service_robot** that simulates the robot, launch all mapping and localization files proper configured.
 
 ![Tree](readme_images/tree.png)
 
