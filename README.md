@@ -32,65 +32,47 @@ source devel/setup.bash
 This repository has the following structure, where the main and most interesting filers are inside **home_service_robot/scripts** containing the "demos" of this repo.
 
 ![Tree](readme_images/tree.png)
-### Packages explained
-
-### Run the simulation and ROS packages
-#### T
-This will open two windows, gazebo and rviz.
-```bash
-cd catkin_ws
-source devel/setup.bash
-roslaunch home_service_robot world.launch
-```
-
-In gazebo you can see all the simulated world with the robot and a building.
-
-![gazebo_world](readme_images/gazebo.png)
-
-On the other hand you will have a rviz window thats shows what the robot sees using the laser (colored dots) and what sees the RGBD camera as point clounds.
-
-![rviz](readme_images/rviz.png)
-
-#### Terminal 2:
-This will start creating a map you can see in rviz.
-If you want to create your own map, you can ...
+# Scripts/packages explained
+## home_service_robot
+Contain the 5 scripts that deomonstarate the power of this repositori, the world and the map:
+To run each of them is as simple as do `rosrun home_service_robot <script_name>`.
+##### test_slam.sh
+Using only build in turtlebot roslaunchs, enables you to start mapping the world using your keyboard.
 In order to save it, run the following command:
+
 ```bash
 rosrun map_server map_saver -f /tmp/my_map
 ```
-![rtab-map](readme_images/rtab-map_starting_point.png)
+Maps are created and stored by default in `~/.ros/map.pgm` and `~/.ros/map.yaml`
+This means that if you create a map, cancel the script and do it it again, it will OVERRIDE your previous map. So ensure to backup it befoure creating a new map! 
 
-**ATENTION!**:
+After saving the map, you can replace files inside `home_service_robot/map/` for these ones to use your own map for the following scripts.
 
-Maps are created and stored by default in `~/.ros/rtabmap.db`
-This means that if you create a map, cancel the mapping.launch and run it again, it will OVERRIDE your previous map. So ensure to backup it befoure creating a new map! 
+##### test_navigation.sh
+Using amcl, your world placed `home_service_robot/worlds` and the map stored inside `home_service_robot/map/` is able to get localized.
+Then you can send goals using rviz and it will be able to navigate autonomously until the goals.
 
-If you want to use the map I already created, you can download it from [here](https://drive.google.com/file/d/1G_P53l2Hb7ecnsXoa-o2MKmRnVLl_oH6/view?usp=sharing)
+##### pick_objects.sh
+Adding an extra functionality to the previous demo, 2 goals are automatically placed in the "pick up" and the "drop off" area. `pick_objecs` is the responsible to send the robot to these points.
 
+##### add_markers.sh
+Paralel to the previous, `add_markers` package one virtual object based on time to the first goal and later on the "dropp off" area. This is actually an intermediate package that will be copied and modified in `home_service_robot` to create the final and most amazing demo.
 
+##### home_service_robot.sh
+Unifying all previous concepts, this script is able to simulate a robot going to a "pick up" zone, pick the object (green cube marker) and drop off in the destination goal sincronising the virtual markers and the position of the robot.
+Note how two terminals print the distance to the next goal as well as status goal information.
 
-#### Terminal 3:
-This will allow you to teleop the robot from cl:
-```bash
-cd catkin_ws
-source devel/setup.bash
-roslaunch home_service_robot teleop.launch
-```
-Remember to click on the terminal to focus it and control the robot.
+Start position:
+![Start position](readme_images/a.png)
 
-After moving a bit, you will start seeing the created 3Dmap as below:
+Pick up the object:
+![Pick up](readme_images/b.png)
 
-![rtab-map](readme_images/rtab-map_after_moving.png)
+Go to "drop off" area:
+![Drop off](readme_images/c.png)
 
-After mapping your enviorment (ensure at least 3 close loops), cancel terminal 2 and run the localization launch file:
-
-#### Terminal 2 (again):
-This will start localizing the robot inside the map you have cerated:
-```bash
-# CTRL+C to cancel previous mapping.launch
-roslaunch home_service_robot localization.launch
-```
-
+Success!!!:
+![Success!!!](readme_images/d.png)
 # Contribute
 
 This project have been done entirely for me while coursing the  [Roftware Software Engineer nando degree program](https://www.udacity.com/course/robotics-software-engineer--nd209) in Udacity. Please feel free to fork and create your own branch with your personalized projects.
