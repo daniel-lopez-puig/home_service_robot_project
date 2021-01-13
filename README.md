@@ -1,43 +1,41 @@
 # home_service_robot
-home_service_robot is basic robot simulation focused on 2D & 3D mapping and localization. This project can be used as a base/template project to start your own modified project.
+home_service_robot is a robot simulation focused on 2D mapping, localization and navigation. This project can be used as a base/template project to start your own modified project.
 
-It is basically composed by three different components:
-- The simulation of the robot that holds a world and a very simple robot inside.
-- Configuration for rtabmap_ros package that enables the robot to get information from RGBD camera and odometry and outputs the 3D map and his localization.
-
+It is basically composed by the following components:
+- The simulation of the robot that holds a world and a very simple robot inside (turtlebot2)
+- A SLAM package called [slam_gmapping](http://wiki.ros.org/gmapping) letting us to map, localize and navigate
+- Some turtlebot packages helping us to teleop and vizualize our robot and enviorment
+- pick_objects and add_markers packages enabling us to automate the simulation of pick and drop objects
+- home_service_robot package unifiying all together in different progressive complex scripts
 # Installation
 This simulation have been created and tested in:
 - [Ubuntu 16.04](https://ubuntu.com/download/desktop) (supports Ubuntu 16.04) 
 - [ROS Kinetic](http://wiki.ros.org/melodic/Installation/Ubuntu) (supports ROS kinetic, with melodic has some issues)
 - [Gazebo 7.0](http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=7.0) (supports Gazebo 7.0 or superior)
 
-Install key pkgs
-
-```bash
-sudo apt update
-sudo apt install ros-kinetic-navigation
-sudo apt install ros-kinetic-map-server
-sudo apt install ros-kinetic-move-base
-sudo apt install ros-kinetic-rtabmap-ros
-```
-
 ### Create a catkin workspace to compile and run the simulation
 
 ```bash
 mkdir -p catkin_ws/src # create 2 folders
 cd catkin_ws/src
-catkin_init_workspace # createa CMakeLists.txt
+catkin_init_workspace # create CMakeLists.txt
 cd catkin_ws # go to main folder
 catkin_make # create some automatic folders and files
 cd src # go to source folder
 git clone https://github.com/daniel-lopez-puig/home_service_robot_project.git #clone this repository
-mv home_service_robot_project/* . && rm -r home_service_robot
 cd .. # go back to catkin_ws
 catkin_make
+source devel/setup.bash
 ```
 
+# Structure
+This repository has the following structure, where the main and most interesting filers are inside **home_service_robot/scripts** containing the "demos" of this repo.
+
+![Tree](readme_images/tree.png)
+### Packages explained
+
 ### Run the simulation and ROS packages
-#### Terminal 1:
+#### T
 This will open two windows, gazebo and rviz.
 ```bash
 cd catkin_ws
@@ -92,11 +90,6 @@ This will start localizing the robot inside the map you have cerated:
 # CTRL+C to cancel previous mapping.launch
 roslaunch home_service_robot localization.launch
 ```
-
-# Structure
-This package is mainly composed by two folders, **teleop_twist_keyboard** (responsible to drive the robot manually) and the **home_service_robot** that simulates the robot, launch all mapping and localization files proper configured.
-
-![Tree](readme_images/tree.png)
 
 # Contribute
 
