@@ -68,6 +68,6 @@ int main(int argc, char** argv){
   else {
     ROS_INFO_STREAM("The robot failed moving to pick up zone at position-> x:" << goal.target_pose.pose.position.x <<" y:"<< goal.target_pose.pose.position.y << std::endl );
   }
-  
+  ros::Duration(5.0).sleep(); // give some time to check console and marker end
   return 0;
 }

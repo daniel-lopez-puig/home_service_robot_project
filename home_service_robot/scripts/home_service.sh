@@ -9,5 +9,7 @@ xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../d
 sleep 5
 xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch " &
 sleep 5
-xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; rosrun add_markers add_markers " &
+xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; rosrun home_service_robot home_service " & # Launch first markers as it makes more sense
+sleep 5
+xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; rosrun pick_objects pick_objects " &
 sleep 5

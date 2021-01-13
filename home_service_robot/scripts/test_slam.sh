@@ -10,3 +10,4 @@ sleep 5
 xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch " & 
 sleep 5
 xterm  -e  " source /opt/ros/kinetic/setup.bash; cd ${DIR}; source ../../../../devel/setup.bash; roslaunch turtlebot_teleop keyboard_teleop.launch " & 
+sleep 5

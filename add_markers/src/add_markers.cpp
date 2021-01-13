@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
+#include <std_msgs/String.h>
 
 
 visualization_msgs::Marker create_marker(const float x, const float y, const float qz=0.0, const float qw=1.0, const int id=0, uint32_t action=visualization_msgs::Marker::ADD){
@@ -40,27 +41,26 @@ int main( int argc, char** argv )
   ros::NodeHandle n;
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
-
-    visualization_msgs::Marker marker;
-    marker = create_marker(8.72774124146,1.64151453972,0.0,1.0,0,visualization_msgs::Marker::ADD);
-    while (marker_pub.getNumSubscribers() < 1)
+  visualization_msgs::Marker marker;
+  marker = create_marker(8.72774124146,1.64151453972,0.0,1.0,0,visualization_msgs::Marker::ADD);
+  while (marker_pub.getNumSubscribers() < 1)
+  {
+    if (!ros::ok())
     {
-      if (!ros::ok())
-      {
-        return 0;
-      }
-      ROS_WARN_ONCE("Please create a subscriber to the marker");
-      sleep(1);
+      return 0;
     }
-    marker_pub.publish(marker);
-    ros::Duration(5.0).sleep();
-    marker = create_marker(8.72774124146,1.64151453972,0.0,1.0,0,visualization_msgs::Marker::DELETE);
-    marker_pub.publish(marker);
-    ros::Duration(5.0).sleep();
-    marker = create_marker(1.11344361305,1.08418285847,1.0,0.0,1,visualization_msgs::Marker::ADD);
-    marker_pub.publish(marker);
-    // ros::Duration(5.0).sleep();
-    // marker = create_marker(1.11344361305,1.08418285847,1.0,0.0,1,visualization_msgs::Marker::DELETE);
-    // marker_pub.publish(marker);
+    ROS_WARN_ONCE("Please create a subscriber to the marker");
+    sleep(1);
+  }
+  marker_pub.publish(marker);
+  ros::Duration(5.0).sleep();
+  marker = create_marker(8.72774124146,1.64151453972,0.0,1.0,0,visualization_msgs::Marker::DELETE);
+  marker_pub.publish(marker);
+  ros::Duration(5.0).sleep();
+  marker = create_marker(1.11344361305,1.08418285847,1.0,0.0,1,visualization_msgs::Marker::ADD);
+  marker_pub.publish(marker);
+  // ros::Duration(5.0).sleep();
+  // marker = create_marker(1.11344361305,1.08418285847,1.0,0.0,1,visualization_msgs::Marker::DELETE);
+  // marker_pub.publish(marker);
 
 }
